@@ -17,6 +17,10 @@
     {% endblock %}
 </head>
 <body>
+    <!-- include navbar  -->
+    {% include "navbar.html"%}
+
+
     <!-- body content -->
     {% block content%}
     <h1>Photo of the day{{dat|date:'l d-F Y'}}</h1>
