@@ -11,4 +11,9 @@ from datetime import dt
 def photo_of_day(request):
     date=dt.date.today()
 
-    render('Welcome to my Photo Gallaery')
+    render(request,'welcome.html')
+
+def past_photo(request):
+    past= dt.date()
+
+    render(request,'past-photo.html')
