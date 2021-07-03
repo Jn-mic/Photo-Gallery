@@ -25,5 +25,4 @@ def past_photo(request,past_date):
     if date == dt.date.today():
         return redirect(photo_of_day)
 
-
-    render(request,'past-photo.html')
+    render(request,'all-photos/past-photo.html',{'date':date,})

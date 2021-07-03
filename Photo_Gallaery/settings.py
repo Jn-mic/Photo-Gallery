@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Installed app
     'photo',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
