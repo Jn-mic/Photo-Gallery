@@ -1,10 +1,12 @@
+# type:ignore
 from django.http.response import Http404, HttpResponse
 from django.shortcuts import render, redirect
-from django.conf import settings
+from django.conf import settings, 
 from . import views
 from django.conf.urls.static import static
 from django.http import HttpResponse
 import datetime as dt
+
 
 
 # Create your views here.
@@ -26,3 +28,11 @@ def past_photo(request,past_date):
         return redirect(photo_of_day)
 
     render(request,'all-photos/past-photo.html',{'date':date,})
+
+
+def photo(request,article_id):
+    try:
+        article=photo.objects.get(id = article_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all-photos/article.html", {"article":article})
