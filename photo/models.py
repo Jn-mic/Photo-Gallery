@@ -7,6 +7,7 @@ class Editor(models.Model):
     first_name=models.CharField(max_length=40)
     last_name=models.CharField(max_length=30)
     email=models.EmailField()
+    phone_number=models.CharField(max_length=12,blank=True)
 
     def __str__(self):
         return self.first_name
@@ -42,6 +43,8 @@ class Article(models.Model):
     editor=models.ForeignKey(Editor,on_delete=models.CASCADE)
     tags=models.ManyToManyField(tag)
     pub_date=models.DateTimeField(auto_now_add=True)
+    article_image=models.ImageField(upload_to='gallary/')
+
 
     def __str__(self):
         return self.post

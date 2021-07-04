@@ -78,5 +78,5 @@ class ArticleTestClass(TestCase):
     # Testing update method
     def test_update_method(self):
         self.Technology.update_article()
-        article= Editor.objects.all()
+        article= Article.objects.all()
         self.assertTrue(len(article)>0)
