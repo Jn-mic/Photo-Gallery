@@ -1,7 +1,7 @@
 # type:ignore
 from django.http.response import Http404, HttpResponse
 from django.shortcuts import render, redirect
-from django.conf import settings, 
+from django.conf import settings
 from . import views
 from django.conf.urls.static import static
 from django.http import HttpResponse

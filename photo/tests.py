@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Editor, tag, Article
 
 # Create your tests here.
-class EditorTestClass(TestCase):
+class LocationTestClass(TestCase):
     #set up method
     def setUp(self):
         self.Moringa= Editor(first_name='Moringa',last_name='student',email='ms@moringa.ke')
@@ -30,7 +30,7 @@ class EditorTestClass(TestCase):
         editors= Editor.objects.all()
         self.assertTrue(len(editors)>0)
 
-class tagTestClass(TestCase):
+class CategoryTestClass(TestCase):
     def setUp(self):
         self.name=tag(tag_name='tech')
     # Testing Instance
@@ -53,7 +53,7 @@ class tagTestClass(TestCase):
         self.assertTrue(len(tags)>0)
 
 # Article Test.
-class ArticleTestClass(TestCase):
+class ImageTestClass(TestCase):
     #set up method
     def setUp(self):
         self.Technology= Article(title='DATA-SCIENCE',Post='Review',editor='Jimmy')
@@ -80,3 +80,6 @@ class ArticleTestClass(TestCase):
         self.Technology.update_article()
         article= Article.objects.all()
         self.assertTrue(len(article)>0)
+
+
+    

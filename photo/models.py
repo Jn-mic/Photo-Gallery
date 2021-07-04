@@ -2,63 +2,79 @@ from django.db import models
 
 # from django.db.models.deletion import CASCADE
 
-# Create your models here.
-class Editor(models.Model):
-    first_name=models.CharField(max_length=40)
-    last_name=models.CharField(max_length=30)
-    email=models.EmailField()
-    phone_number=models.CharField(max_length=12,blank=True)
+# creating a location models in our database
+class Location(models.Model):
+    name = models.CharField(max_length=60)
 
+    @classmethod
+    def get_locations(cls):
+        locations = Location.objects.all()
+        return locations
     def __str__(self):
-        return self.first_name
-    
-    def save_editor(self):
-        self.save()
-    
-    def delete_editor(self):
+        return self.name
+
+    @classmethod
+    def update_location(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
+    def save_location(self):
         self.save()
 
-    def update_editor(self):
-        self.save()
+    def delete_location(self):
+        self.delete()
 
-# creating a tag models in our database
-class tag(models.Model):
-    name=models.CharField(max_length=20)
+    def update_location(self):
+        self.delete()
+
+# creating a  category models in our database
+class Category(models.Model):
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
-    def save_tag(self):
-        self.save()
-    
-    def delete_tag(self):
+
+    def save_category(self):
         self.save()
 
-    def update_tag(self):
-        self.save()
+    def delete_category(self):
+        self.delete()
 
-# creating a Article models in our database
-class Article(models.Model):
-    title=models.CharField(max_length=30)
-    post=models.TextField()
-    editor=models.ForeignKey(Editor,on_delete=models.CASCADE)
-    tags=models.ManyToManyField(tag)
-    pub_date=models.DateTimeField(auto_now_add=True)
-    article_image=models.ImageField(upload_to='gallary/')
+    def update_category(self):
+        self.delete()
 
+# creating a  Images models in our database
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+    name = models.CharField(max_length=60)
+    description = models.TextField()
+    author = models.CharField(max_length=40, default='admin')
+    date = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
 
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Image.objects.filter(location__name=location).all()
+        return image_location
+    @classmethod
+    def update_image(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id).all()
+        return image
+    @classmethod
+    def search_by_category(cls, category):
+        images = cls.objects.filter(category__name__icontains=category)
+        return images
     def __str__(self):
-        return self.post
-
-    def save_Article(self):
+        return self.name
+    def save_image(self):
         self.save()
-    
-    def delete_Article(self):
-        self.save()
-
-    def update_Article(self):
-        self.save()
-
-
+    def delete_image(self):
+        self.delete()
+    class Meta:
+        ordering = ['date']
 
 
 
