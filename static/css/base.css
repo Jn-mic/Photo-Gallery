@@ -1,3 +1,10 @@
 h1{
     color: purple
 }
+
+h3,h5{
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    margin-left: 10px;
+}

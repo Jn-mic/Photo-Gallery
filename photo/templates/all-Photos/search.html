@@ -15,12 +15,10 @@
     
         {% for photo in photos %}
         <div class="col-sm-6 col-md-3">
-        <h1>{{photo.name}}</h1>
-        <img src="{{photo.image.url}}">
-        <p>{{photo.description}}</p>
-        <p>{{photo.location}}</p>
-        <br>
-        <p>Posted on {{pub_date|timesince}}</p>
+            <h1>{{photo.name}}</h1>
+                <img src="{{photo.image.url}}">
+            <p>{{photo.description}}</p>
+            <p>Located in :<strong>{{photo.location}}</strong></p>
         </div>
         {% endfor %}
         {% endif %}
