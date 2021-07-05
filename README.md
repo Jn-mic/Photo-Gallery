@@ -1,4 +1,4 @@
-# One Minute -Pitch Project
+# photo-Gallery Project
 A photo gallery project where user can view different photos and see attached notes from various categories.
 
 ## Author
