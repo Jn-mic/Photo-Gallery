@@ -1,6 +1,5 @@
 from django.db import models
-
-# from django.db.models.deletion import CASCADE
+from django.db.models.deletion import CASCADE
 
 # creating a location models in our database
 class Location(models.Model):
@@ -10,6 +9,7 @@ class Location(models.Model):
     def get_locations(cls):
         locations = Location.objects.all()
         return locations
+
     def __str__(self):
         return self.name
 
