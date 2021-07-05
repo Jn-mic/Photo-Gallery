@@ -9,16 +9,19 @@
     <div class="col-md-3">
         <div class="card-group wow fadeInLeft" style="margin:2%;" data-aos='fade-up'>
             <div class="view overlay zoom ">
-                <img src="{{image.image.url}}" class="card-img-top"
+                <img src="{{photo.image.url}}" class="card-img-top"
                     style="height: 300px; width: 300px;border-radius: 12%;">
                 <div class="mask flex-center rgba-black-strong">
-                    <a href="{{image.image.url}}" class="btn btn-success">VIEW <i
+                    <a href="{{photo.image.url}}" class="btn btn-success">view <i
                             class="far fa-chevron-double-right"></i> </a>
                 </div>
             </div>
-            <div class="card-body" style="border:2px rgb(36, 37, 37);">
+            <div class="card-body" style="border:2px #0be4e4;">
                 <a href="#">
-                    <h5 class="strong-text"> <strong>{{image.tittle}}</strong> </h5>
+                    <h5 class="strong-text"> <strong>{{photo.name}}</strong> </h5>
+                    <h5 class="strong-text"> <strong>{{photo.description}}</strong> </h5>
+                    <h5 class="strong-text"> <strong>{{photo.location}}</strong> </h5>
+                    <p>Posted on {{photo.pub_date|timesince}}</p>
                     <!-- <strong>{{image.image_description}}</strong> </h5> -->
                     <!-- <h5 class="strong-text"> <strong>Location: {{image.image_local}}</strong> </h5>
                     <h5 class="strong-text"> <strong>Category: {{image.image_category}}</strong> </h5> -->
