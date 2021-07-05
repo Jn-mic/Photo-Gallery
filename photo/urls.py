@@ -7,9 +7,11 @@ from . import views
 
 
 urlpatterns=[
-    path('photo/',views.photo_of_day, name='photoToday'),
-    path('photo/',views.past_photo, name='pastPhoto'),
+    path('photo_list',views.photo_list, name='photo_list'),
+    path('photo/<str:photo_id>/',views.photo, name='search_photo'),
+    path('search/',views.search_results, name='search_results'),
+    
+
+
 ]
 
-if settings.DEBUG:
-    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

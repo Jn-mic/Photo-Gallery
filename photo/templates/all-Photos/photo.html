@@ -2,24 +2,23 @@
 
 {% block content%}
 {{block.super}}
-
+{%endblock%}
 
 <div class="row"style="font-size:15px">
-    {% for photo in images %}
+    {% for image in images %}
     <div class="col-md-3">
         <div class="card-group wow fadeInLeft" style="margin:2%;" data-aos='fade-up'>
             <div class="view overlay zoom ">
-                <img src="{{photo.image.url}}" class="card-img-top"
+                <img src="{{image.image.url}}" class="card-img-top"
                     style="height: 300px; width: 300px;border-radius: 12%;">
                 <div class="mask flex-center rgba-black-strong">
-                    <a href="{{photo.image.url}}" class="btn btn-success">VIEW <i
+                    <a href="{{image.image.url}}" class="btn btn-success">VIEW <i
                             class="far fa-chevron-double-right"></i> </a>
                 </div>
             </div>
             <div class="card-body" style="border:2px rgb(36, 37, 37);">
                 <a href="#">
-                    <h5 class="strong-text"> <strong>{{photo.name}}</strong> </h5>
-                    <h5 class="strong-text"> <strong>{{photo.description}}</strong> </h5>
+                    <h5 class="strong-text"> <strong>{{image.tittle}}</strong> </h5>
                     <!-- <strong>{{image.image_description}}</strong> </h5> -->
                     <!-- <h5 class="strong-text"> <strong>Location: {{image.image_local}}</strong> </h5>
                     <h5 class="strong-text"> <strong>Category: {{image.image_category}}</strong> </h5> -->
@@ -27,19 +26,12 @@
                     <!-- The button used to copy the text
                     <button onclick="myFunction(event)">Copy</button>
                     <span id="address"></span> -->
-                <!-- </a>
-                <!-- <hr class="bg-info">
-                <!-- <p class="black-text pull-right"></p>
+                </a>
+                <hr class="bg-info">
+                <p class="black-text pull-right"></p>
             </div>
-        <!-- </div>
-    <!-- </div> -->
-    {% endfor %} 
-</div> 
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-<!-- {% for photo in images%}
-
-<p>{{photo.location}}</p>
-<img src="{{photo.image.url}}">
-
-{%endfor%} -->
-{%endblock%}

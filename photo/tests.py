@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Location, Category,Image
 
 
-def test_delete_imagephoto(self):
+def test_delete_image(self):
     '''
     Test the deletion of an instance
     '''
@@ -30,3 +30,5 @@ def test_filter_by_location(self):
 
 def tearDown(self):
     Image.objects.all().delete()
+    Location.objects.all().delete()
+    Category.objects.all().delete()
