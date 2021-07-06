@@ -1,3 +1,4 @@
 / .vscode
 SECRET_KEY
 /
+.env
